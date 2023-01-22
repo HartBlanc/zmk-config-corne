@@ -144,11 +144,11 @@
             mods = <(MOD_LALT|MOD_LGUI)>;
             keep-mods = <(MOD_LALT|MOD_LGUI)>;
         };
-        l_mod_right: l_mod_right {
+        i_mod_right: i_mod_right {
             compatible = "zmk,behavior-mod-morph";
             label = "ALT_RIGHT";
             #binding-cells = <0>;
-            bindings = <&rhl 2 L>, <&kp RIGHT>;
+            bindings = <&rhl 2 I>, <&kp RIGHT>;
             mods = <(MOD_LALT|MOD_LGUI)>;
             keep-mods = <(MOD_LALT|MOD_LGUI)>;
         };
@@ -172,41 +172,41 @@
 
         default_layer {
             // ---------------------------------------------------------------------------------
-            // | CAPS |  Q  |  W  |  E  |  R  |  T  |   |  Y   |  U   |  I  |  O  |  P  | NUM |
-            // | ESC  |  A  |  S  |  D  |  F  |  G  |   |  H   |  J   |  K  |  L  |  ;  |  '  |
-            // |  \   |  Z  |  X  |  C  |  V  |  B  |   |  N   |  M   |  ,  |  .  |  /  |  -  |
-            //                    |     | TAB | SPC |   | BKSP | RSE  |     |
+            // | CAPS |  Q  |  W  |  F  |  P  |  G  |   |  J   |  L   |  U  |  Y  |  ;  | NUM |
+            // | ESC  |  A  |  R  |  S  |  T  |  D  |   |  H   |  N   |  E  |  I  |  O  |  '  |
+            // |  [   |  Z  |  X  |  C  |  V  |  B  |   |  N   |  M   |  ,  |  .  |  /  |  ]  |
+            //                    |     | TAB | SPC |   | BKSP | RET  |     |
             bindings = <
-               &caps_mm  &kp Q        &kp W     &kp E           &kp R        &kp T          &kp Y        &kp U        &kp I           &kp O         &kp P            &num_word
-               &gresc    &lhm LCTRL A &lhl 2 S  &lhms LSHIFT D  &lhm LGUI F  &lhm LALT G    &h_mod_left  &rhm RGUI J  &rhms RSHIFT K  &l_mod_right  &rhm RCTRL SEMI  &kp SQT
-               &kp BSLH  &kp Z        &kp X     &kp C           &kp V        &kp B          &kp N        &kp M        &kp COMMA       &kp DOT       &kp FSLH         &kp MINUS
+               &caps_mm  &kp Q        &kp W     &kp F           &kp P        &kp G          &kp J        &kp L        &kp U           &kp Y         &kp SEMI      &num_word
+               &gresc    &lhm LCTRL A &lhl 2 R  &lhms LSHIFT S  &lhm LGUI T  &lhm LALT D    &h_mod_left  &rhm RGUI N  &rhms RSHIFT E  &i_mod_right  &rhm RCTRL O  &kp SQT
+               &kp LBKT  &kp Z        &kp X     &kp C           &kp V        &kp B          &kp K        &kp M        &kp COMMA       &kp DOT       &kp FSLH      &kp RBKT
                                                 &none           &lt 1 TAB    &su_mm         &kp BSPC     &lt 3 RET    &none
             >;
         };
-        lower_layer {
+        nav_fn_layer {
             // ---------------------------------------------------------------------------------
             // |       |  F1 |  F2 |  F3 |  F4 |  F5 |   |  F6 |  F7 |  F8 |  F9 |  F10 |  F11 |
-            // | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |  <  |   v |  ^  |   > |      |      |
+            // | BTCLR | BT1 | BT2 | BT3 | BT4 |     |   |  <  |   v |  ^  |   > |      |      |
             // |       |     |     |     |     |     |   |     |     |     |     |      |      |
             //                     |     |     |     |   |     |     |     |
             bindings = <
                &trans      &kp F1        &kp F2        &kp F3        &kp F4       &kp F5    &kp F6    &kp F7    &kp F8    &kp F9     &kp F10  &kp F11
                &bt BT_CLR  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4  &none     &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans   &trans
                &trans      &trans        &trans        &trans        &trans       &trans    &trans    &trans    &trans    &trans     &trans   &trans
-                          	                       &trans        &trans       &trans    &trans    &trans    &trans
+                          	                         &trans        &trans       &trans    &trans    &trans    &trans
             >;
         };
-        raise_layer {
-            // -------------------------------------------------------------------------------
-            // |      |  +  |  =  |  {  |  }  |  |  |   |  `  |  [  |  ]  |  <  |  >  |   '  |
-            // |   ~  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |      |
-            // |   \  |     |  ?  |  ;  |  "  |  '  |   |  _  |  -  |  /  |  \  |  /  |   -  |
-            //                    |     |     | SPC |   | ENT |     | ALT |
+        symbol_layer {
+            // -----------------------------------------------------------------------------
+            // |     |  :  |  +  |  =  |     |     |   |      |     |  {  |  }  |  :  |    |
+            // |  ~  |  !  |  @  |  #  |  %  |  ^  |   |   $  |  &  |  *  |  (  |  )  |  " |
+            // |  [  |  \  |     |     |  |  |     |   |      |  -  |  <  |  >  |  ?  |  ] |
+            //                   |     | TAB |  _  |   | BKSP | RET |     |
             bindings = <
-               &trans    &kp PLUS &kp EQUAL  &kp LBRC  &kp RBRC  &kp PIPE     &kp GRAVE  &kp LBKT   &kp RBKT   &kp LT    &kp GT    &trans
-               &kp TILDE &kp EXCL &kp AT     &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &none
-               &trans    &none    &kp QMARK  &kp P     &kp DQT   &kp SQT      &kp UNDER  &kp MINUS  &kp FSLH   &kp BSLH  &trans    &trans
-                    	                     &trans    &trans    &trans       &trans     &trans     &trans
+               &trans     &kp COLON &kp PLUS  &kp EQUAL  &none      &none        &none     &none      &kp LBRC   &kp RBRC  &kp COLON  &none
+               &kp TILDE  &kp EXCL  &kp AT    &kp HASH   &kp PRCNT  &kp CARET    &kp DLLR  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR   &kp DQT
+               &trans     &kp BSLH  &none     &none      &kp PIPE   &none        &none     &kp MINUS  &kp LT     &kp GT    &kp QMARK  &trans
+                    	                     &trans     &trans     &kp UNDER    &trans    &trans     &trans
             >;
         };
         num_layer {
