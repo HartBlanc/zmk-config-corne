@@ -180,7 +180,7 @@
                &caps_mm  &kp Q        &kp W     &kp F           &kp P        &kp G          &kp J        &kp L        &kp U           &kp Y         &kp SEMI      &num_word
                &gresc    &lhm LCTRL A &lhl 2 R  &lhms LSHIFT S  &lhm LGUI T  &lhm LALT D    &h_mod_left  &rhm RGUI N  &rhms RSHIFT E  &i_mod_right  &rhm RCTRL O  &kp SQT
                &kp LBKT  &kp Z        &kp X     &kp C           &kp V        &kp B          &kp K        &kp M        &kp COMMA       &kp DOT       &kp FSLH      &kp RBKT
-                                                &none           &lt 1 TAB    &su_mm         &kp BSPC     &lt 3 RET    &none
+                                                &none           &lt 3 BSPC   &su_mm         &kp TAB      &lt 3 RET    &none
             >;
         };
         nav_fn_layer {
